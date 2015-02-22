@@ -1,0 +1,95 @@
+
+<!-- แสดงรายงานผลการเรียน -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Grading Services System&nbsp;:&nbsp;Kasetsart University</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="body">
+<CENTER>
+        <table class="table-main" border="0" >
+	        <tr><td>
+                    <table class="table-subMain" border="0" >
+              	        <tr><td class="logo"><img src="image/logo.gif" width="100" height="100" border="0" alt="Logo"></td>
+								<td class="sysName" align="center" valign="center" ><FONT SIZE="+2" COLOR="white"><B>Grading Services System<br>Kasetsart University</B></FONT></td>                  
+		                        <td class="sysName" style="width:100px">&nbsp;</td>
+						</tr>
+		                <tr> <td style="width:100px">&nbsp;</td>
+								<td class="mainMenu"><FONT SIZE="-1" COLOR="">5510546972&nbsp;&nbsp;นายธัญธร จารุโชติรัตนสกุล</FONT></td>
+								<form METHOD="POST" action="GSTU_login_.php">
+								<td align="right">
+<!--								<a href="https://www.regis.ku.ac.th/grade/GSTU_login_.php" class="text-mainMenu">ออกจากระบบ</a>	-->
+								<input type="hidden" name="mode" value="LOGOUT" />
+								<INPUT TYPE="submit" value="ออกจากระบบ" />
+								</td>
+								</form>
+		                </tr>
+			        </table>
+					<table class="table-subMain" border="0" >
+                         <tr>
+							    <td class="content" colspan="2">&nbsp;</td>
+						</tr>
+                         <tr>
+							    <td class="pageName" colspan="2">ผลการเรียนรายวิชา</td>
+						</tr>
+                         <tr>
+							    <td class="content" colspan="2">&nbsp;</td>
+						</tr>
+					  	<tr class="content">
+						    	<td colspan="5" class="searchBox">
+							    <form id="form2" METHOD="POST" ACTION="GSTU_course_.php">
+										<table class="table-search" border="0">
+							                <tr>
+							                    <td class="firstColumn">&nbsp;</td>
+							                    <td class="searchName" width="15%">เลือกปี/ภาคการศึกษา :</td>
+							                    <td class="searchField" width="16%">
+													 25<input type="text" name="YearS" size="1" maxlength="2" height="10">/
+													<select name="YearSem" id="">
+														<option value="1">ภาคต้น</option>
+														<option value="2">ภาคปลาย</option>
+														<option value="3">ภาคสาม</option>
+														<option value="0">ภาคฤดูร้อน</option>
+														<option value="5">ภาคฤดูร้อน 2</option>
+													</select></td>
+											   <td class="infoField" width="10%">
+													<input type="hidden" name="UserName" value="b5510546972" id="">
+													<input type="hidden" name="Password" value="" id="">
+													<input type="hidden" name="Campus" value="" id="">
+													<input type="hidden" name="Requery" value="Y" id="">
+													<input type="submit" name="" value="ค้นหา" id=""></td>
+		            						    <td class="infoName" width="15%">&nbsp;</td>
+												<td class="infoField" width="29%">&nbsp;</td>
+								          </tr>
+									      <tr>
+                    						<td colspan="6"><hr></td>
+							              </tr>
+							</form> </td></tr> 
+				            <table class="table-searchResult">
+					    		<tr class="commandBar">    		                    <td>
+                		            <table class="table-commandBar">              
+                            		    <tr><td class="tableName">ประจำปีการศึกษา  2557 ภาคต้น</td>
+			                            </tr>
+						            </table>
+			                    </td></tr>
+						    </table>
+							<TABLE cellspacing="0" cellpadding="0" border=1 width=100%>
+								<tr class="headRow">
+								    <TD align=center><FONT SIZE="" COLOR=#FFFFFF><B>ลำดับ</B></FONT></TD>
+									<TD align=center><FONT SIZE="" COLOR=#FFFFFF><B>รหัสวิชา</B></FONT></TD>
+									<TD align=center><FONT SIZE="" COLOR=#FFFFFF><B>ชื่อวิชา</B></FONT></TD>
+									<TD align=center><FONT SIZE="" COLOR=#FFFFFF><B>หมู่เรียน</B></FONT></TD>
+									<TD align=center><FONT SIZE="" COLOR=#FFFFFF><B>เกรด</B></FONT></TD>
+									<TD align=center><FONT SIZE="" COLOR=#FFFFFF><B>สถานะเกรด</B></FONT></TD>
+								</TR>
+
+<TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">1</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01204312</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Probability Theory & Stat. for Comp. Eng.</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">2</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01219331</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Database Design & Programming</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">3</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01219332</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Data Warehouse</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">4</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01219347</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Workgroup Software Development Process</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">5</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01219348</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Workgroup Software Development Process Lab.</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">6</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01219451</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Web Services Technology</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">7</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01999032</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Thai Studies</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr><TR bgcolor=white height=22>	<TD align=center width=90><FONT SIZE="-1" COLOR="">8</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">01999213</FONT></TD>	<TD align=left width=400><FONT SIZE="-1" COLOR=""><dd>Environment, Technology & Life</FONT></TD>	<TD align=center width=80><FONT SIZE="-1" COLOR="">450</FONT></TD>	<TD align=left width=80><FONT SIZE="-1" COLOR=""><dd>&nbsp;</FONT></TD>	<TD align=center width=100><FONT SIZE="-1" COLOR="">ไม่ทางการ</FONT></TD></tr></table></td></tr>
+<tr><td><BR><BR><BR><BR>
+</td></tr>
+		<tr>
+    	    <td class="copyright"><font class="text-copyright">&nbsp;</font></td>
+  	    </tr>
+</table>
+</CENTER>
+</BODY>
+</HTML>
