@@ -49,7 +49,7 @@ req = br.open("https://grade-std.ku.ac.th/GSTU_login_.php")
 
 br.select_form(nr=0)
 br["UserName"] = 'b5510546972'
-br["Password"] = 'Dream1319'
+br["Password"] = ''
 d = readCaptcha(br)
 br["captcha"] = d
 page = br.submit().read()
