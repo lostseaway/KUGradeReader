@@ -27,7 +27,7 @@ def sendNoti(subject,grade):
 	req.add_header("Content-type", "application/x-www-form-urlencoded")
 	page=urllib2.urlopen(req).read()
 
-def checkGrade(username,password):
+def checkGrade(username,password,year,sem):
 	br = mechanize.Browser()
 	br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
 	req = br.open("https://grade-std.ku.ac.th/GSTU_login_.php")
@@ -45,13 +45,13 @@ def checkGrade(username,password):
 		print "System Down restarting....."
 		time.sleep(60)
 		return checkGrade(username,password)
-	br["YearS"]= '57'
-	br["YearSem"]=['2']
+	br["YearS"]= year
+	br["YearSem"]=[sem]
 	page = br.submit().read()
 	page = page.split("\n")
 	sub = ""
 	for line in page:
-		if "450" in line:
+		if "TR bgcolor=white" in line:
 			sub = line
 	soup = BeautifulSoup(sub)
 	sub = soup.findAll("td")
@@ -75,17 +75,20 @@ def checkGrade(username,password):
 	return lots
 user = raw_input("ID (bxxxxxxxxxx) : ")
 pas = getpass.getpass("Password : ")
-per = checkGrade(user,pas)
+year = raw_input("Semester Year ex 57: ")
+sem = raw_input("Semester 0=Summar 1=1st Sem. 2=2nd Sem. : ")
+
+per = checkGrade(user,pas,year,sem)
 while True:
 	clear()
-	l = checkGrade(user,pas)
-	# if per!=l:
-	if True:
+	l = checkGrade(user,pas,year,sem)
+	if per!=l:
+	# if True:
 		os.system('say update!')
 		# os.system('terminal-notifier -message \"Grade is coming!\" -title \"Grade Watcher!\"')
 		for i in range(len(l)):
-			if l[i][4] == 'B':
-			# if l[i][4] != per[i][4]:
+			# if l[i][4] == 'B':
+			if l[i][4] != per[i][4]:
 				sendNoti(str(l[i][2]),str(l[i][4]))
 		per = l
 	for g in l:
