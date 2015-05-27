@@ -5,6 +5,7 @@ import getpass
 from bs4 import BeautifulSoup
 import os
 import time
+import urllib2, urllib
 def clear():
     os.system('clear')
 def readCaptcha(br):
@@ -19,14 +20,12 @@ def readCaptcha(br):
 	f = open('out.txt', 'r')
 	return f.read()[0:4]
 def sendNoti(subject,grade):
-	data = {
-    "subject": subject,
-    "grade": grade  
-	}
-
-	url = 'http://128.199.212.108/jf-shop/api/v1/grade'
-	headers = {'content-type': 'application/json'}
-	response = requests.post(url, data=json.dumps(data), headers=headers)
+	mydata=[('subject',subject),('grade',grade)]    #The first is the var name the second is the value
+	mydata=urllib.urlencode(mydata)
+	path='http://128.199.151.39/kugrade/console/mail.php'    #the url you want to POST to
+	req=urllib2.Request(path, mydata)
+	req.add_header("Content-type", "application/x-www-form-urlencoded")
+	page=urllib2.urlopen(req).read()
 
 def checkGrade(username,password):
 	br = mechanize.Browser()
@@ -47,6 +46,7 @@ def checkGrade(username,password):
 		time.sleep(60)
 		return checkGrade(username,password)
 	br["YearS"]= '57'
+	br["YearSem"]=['2']
 	page = br.submit().read()
 	page = page.split("\n")
 	sub = ""
@@ -79,12 +79,14 @@ per = checkGrade(user,pas)
 while True:
 	clear()
 	l = checkGrade(user,pas)
-	if per!=l:
+	# if per!=l:
+	if True:
 		os.system('say update!')
-		os.system('terminal-notifier -message \"Grade is coming!\" -title \"Grade Watcher!\"')
-		# for i in range(len(l)):
-		# 	if l[i][4] != per[i][4]:
-		sendNoti("A","B")
+		# os.system('terminal-notifier -message \"Grade is coming!\" -title \"Grade Watcher!\"')
+		for i in range(len(l)):
+			if l[i][4] == 'B':
+			# if l[i][4] != per[i][4]:
+				sendNoti(str(l[i][2]),str(l[i][4]))
 		per = l
 	for g in l:
 		print "%2s %8s %45s %20s %2s %s"%(g[0],g[1],g[2],g[3],g[4],g[5])

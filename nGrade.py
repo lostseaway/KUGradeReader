@@ -57,6 +57,7 @@ page = br.submit().read()
 
 br.select_form(nr=1)
 br["YearS"]= '57'
+br["YearSem"]=['2']
 page = br.submit().read()
 
 print page
